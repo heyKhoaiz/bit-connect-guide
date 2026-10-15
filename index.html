@@ -76,7 +76,7 @@ p{margin:0}
 .rail a.on{background:var(--accent-soft);color:var(--ink)}
 .rail a.on span{color:var(--accent);opacity:1}
 main{min-width:0;display:grid;gap:72px}
-section{display:grid;gap:16px;min-width:0}
+section{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;min-width:0}
 .lead{font-size:1.06rem;color:var(--muted);max-width:68ch}
 .prose{max-width:68ch;display:grid;gap:12px}
 
@@ -157,7 +157,7 @@ ul.ticks li::before{content:"";position:absolute;left:4px;top:.6em;width:10px;he
 .checks .t{fill:none;stroke:var(--accent-ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
 /* screenshot gallery */
-.tabs{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface);width:max-content;max-width:100%}
+.tabs{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:22px;background:var(--surface);justify-self:start;max-width:100%}
 .tabs button{border:0;background:none;color:var(--muted);font:500 14px var(--f-body);padding:7px 16px;border-radius:999px;cursor:pointer}
 .tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
 .shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px}
