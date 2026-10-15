@@ -58,7 +58,12 @@ p{margin:0}
 .theme button:not([aria-pressed="true"]):hover{color:var(--ink);background:var(--sunk)}
 .btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
 .btn:not(.primary):hover{border-color:var(--accent);color:var(--accent)}
-@media (max-width:560px){.ver{display:none}.theme button span{display:none}.theme button{padding:7px}}
+.lb-hint,.tree-hint{display:none;color:var(--muted);font-size:13px}
+.lb-bar .lb-hint{color:#ffffff;opacity:.8}
+@media (max-width:560px){.ver{display:none}.theme button span{display:none}.theme button{padding:7px;min-width:40px;min-height:40px;justify-content:center}}
+@media (max-width:720px){.tabs button,.chip{min-height:40px}.rail a{min-height:40px;display:inline-flex;align-items:center}
+  .lb-img img{width:auto;max-width:none;height:auto;min-width:100%}.lb-img img.wide{width:900px}.lb-hint{display:block}
+  .tree{font-size:12.5px}.tree-hint{display:block}}
 .hero{padding-block:48px 36px;display:grid;gap:18px;max-width:760px}
 .eyebrow{font:600 12px var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
 .hero h1{font-size:clamp(2.1rem,5.4vw,3.4rem);font-weight:700;letter-spacing:-.02em}
@@ -313,7 +318,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
 
       <dialog class="lb" id="lb" aria-label="Screenshot">
         <div class="lb-inner">
-          <div class="lb-bar"><span id="lb-cap"></span><button type="button" id="lb-close">Close</button></div>
+          <div class="lb-bar"><span><span id="lb-cap"></span><span class="lb-hint">Scroll sideways to see the whole screen</span></span><button type="button" id="lb-close">Close</button></div>
           <div class="lb-img"><img id="lb-img" src="" alt=""></div>
         </div>
       </dialog>
@@ -439,6 +444,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
 ├─ group/vip/                                  <i>Pro, private group · never indexed</i>
 ├─ user/jane-doe/                              <i>profile · off by default</i>
 └─ login/ · register/ · notifications/         <i>never indexed</i></div>
+        <p class="tree-hint">Swipe the box sideways to see each note.</p>
         <p class="prose" style="color:var(--muted)">Search, filter and sort links such as <code>?search=export</code> point search engines back to the main list, so they never create duplicate pages. If you rename a tag or stage, its old address redirects to the new one.</p>
 
         <h3>Sitemap</h3>
@@ -676,7 +682,7 @@ const tabs=[...document.querySelectorAll('.tabs [role=tab]')];
 tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);document.getElementById('shots-'+x.dataset.set).hidden=!on})}));
 const lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap');
 document.querySelectorAll('.shot button').forEach(b=>b.addEventListener('click',()=>{
-  const img=b.querySelector('img');lbImg.src=b.dataset.full;lbImg.alt=img.alt;
+  const img=b.querySelector('img');lbImg.src=b.dataset.full;lbImg.alt=img.alt;lbImg.classList.toggle('wide',img.naturalWidth>img.naturalHeight);
   lbCap.textContent=b.closest('figure').querySelector('b').firstChild.textContent.trim();
   if(lb.showModal)lb.showModal();else lb.setAttribute('open','');
 }));
@@ -694,7 +700,7 @@ q.addEventListener('input',apply);
 
 // highlight the section in view
 const links=[...document.querySelectorAll('.rail a')];
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>{const on=l.getAttribute('href')==='#'+e.target.id;l.classList.toggle('on',on);if(on&&window.innerWidth<=900)l.scrollIntoView({block:'nearest',inline:'nearest'})})}})},{rootMargin:'-40% 0px -55% 0px'});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>{const on=l.getAttribute('href')==='#'+e.target.id;l.classList.toggle('on',on);if(on&&window.innerWidth<=900){const r=l.parentElement;r.scrollTo({left:l.offsetLeft-16,behavior:'smooth'})}})}})},{rootMargin:'-40% 0px -55% 0px'});
 document.querySelectorAll('main section').forEach(s=>io.observe(s));
 </script>
 
