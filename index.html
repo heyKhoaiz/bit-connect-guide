@@ -237,7 +237,8 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
       <a href="#features"><span>4</span>Free vs Pro</a>
       <a href="#seo"><span>5</span>SEO &amp; AI search</a>
       <a href="#usecases"><span>6</span>Use cases</a>
-      <a href="#faq"><span>7</span>FAQ</a>
+      <a href="#roadmap"><span>7</span>Roadmap</a>
+      <a href="#faq"><span>8</span>FAQ</a>
     </nav>
 
     <main>
@@ -422,7 +423,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
             <tr><td data-l="Area">Dashboard</td><td data-l="Free">Totals, activity, most requested, response time, top contributors</td><td data-l="Pro adds">—</td></tr>
             <tr><td data-l="Area">SEO</td><td data-l="Free">Server-rendered pages, sitemaps, structured data, social tags, works with SEO plugins</td><td data-l="Pro adds">Public group pages in the sitemap; private content kept out of search everywhere</td></tr>
           </tbody></table></div>
-        <p class="lead" style="font-size:15px">Not available yet in either version: importing from another forum, captcha, emoji reactions, and sorting the portal by votes.</p>
+        <p class="lead" style="font-size:15px">Not available yet in either version: importing from another forum, captcha, emoji reactions, and sorting the portal by votes. Importing and spam protection are on the <a href="#roadmap">roadmap</a>.</p>
       </section>
 
       <!-- 4 -->
@@ -501,7 +502,36 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
         </div>
       </section>
 
-      <!-- 6 -->
+      <!-- 7 -->
+      <section id="roadmap">
+        <h2>Roadmap</h2>
+        <p class="lead">What we plan to build, in order. Phases are a sequence, not dates, and the plan can change as we hear from you. Every free feature works fully without Pro.</p>
+
+        <h3>Coming next</h3>
+        <div class="grid">
+          <div class="card"><span class="pill free">Free</span><h4>Spam protection</h4><p>Akismet checks on new topics, comments and sign-ups, plus Turnstile or hCaptcha on the sign-up form. Flagged posts wait in the moderation queue.</p></div>
+          <div class="card"><span class="pill free">Free</span><h4>Privacy export and erase</h4><p>Topics, comments, votes and follows included in WordPress's own personal-data export and erase tools.</p></div>
+          <div class="card"><span class="pill free">Free</span><h4>Similar topics</h4><p>Matching topics appear while a member types a title, so a request gets a vote instead of a duplicate.</p></div>
+        </div>
+
+        <h3>After that</h3>
+        <div class="grid">
+          <div class="card"><span class="pill free">Free</span><h4>Mark as solved</h4><p>The author or a moderator marks the answer. Solved topics get a badge, the answer shows first, and lists can filter by solved.</p></div>
+          <div class="card"><span class="pill pro">Pro</span><h4>Merge duplicate topics</h4><p>Fold one topic into another: votes, followers and comments move across, and the old address redirects.</p></div>
+          <div class="card"><span class="pill pro">Pro</span><h4>Roadmap board and changelog</h4><p>Your statuses as columns, such as Planned, In progress and Done, and a note to everyone who voted when a request ships.</p></div>
+          <div class="card"><span class="pill pro">Pro</span><h4>Webhooks, Slack and Discord</h4><p>New topics, comments and status changes sent to the tools your team already uses.</p></div>
+        </div>
+
+        <h3>Later</h3>
+        <div class="grid">
+          <div class="card"><span class="pill free">Free</span><h4>Import your forum</h4><p>Bring topics, comments, members and votes over from bbPress, wpForo or Discourse.</p></div>
+          <div class="card"><span class="pill pro">Pro</span><h4>Reputation and leaderboard</h4><p>Points for helpful answers and upvotes received, with badges awarded along the way.</p></div>
+          <div class="card"><span class="pill pro">Pro</span><h4>Reply by email</h4><p>Answer a notification straight from your inbox, and the comment lands in the topic.</p></div>
+          <div class="card"><span class="pill pro">Pro</span><h4>Single sign-on</h4><p>Members sign in with the account they already have elsewhere.</p></div>
+        </div>
+      </section>
+
+      <!-- 8 -->
       <section id="faq">
         <h2>Frequently asked questions</h2>
         <div class="search">
@@ -544,7 +574,7 @@ const FAQ = [
  ["Moderation","Can I approve topics before they go live?","Yes, with Pro. Turn on 'Require approval for new topics'."],
  ["Moderation","Can reported posts hide automatically?","Yes, with Pro. It is on from the start at 2 reports, and you can choose 1 to 20. Posts by staff are never hidden automatically. In the free version, reported posts stay visible until a moderator reviews them."],
  ["Moderation","Can I pin a topic to the top?","Yes, with Pro. Administrators can pin by default, and you can give the 'Pin Topics' permission to other roles under Members → Role permissions. Pin from the topic's menu on the portal, or several at once on the admin Topics screen. Pinned topics stay at the top of every list."],
- ["Moderation","Is there a captcha?","There is no built-in captcha. Bit Connect limits how often people can sign up, log in, vote and report, and it works with WordPress anti-spam plugins."],
+ ["Moderation","Is there a captcha?","There is no built-in captcha. Bit Connect limits how often people can sign up, log in, vote and report, and it works with WordPress anti-spam plugins. Built-in spam protection, with Akismet and Turnstile or hCaptcha, is next on the roadmap."],
  ["Moderation","Can I limit post length or file size?","Yes, with Pro, under Settings → Limits."],
  ["Groups","What is a group?","A space inside your community with its own topics, members and moderators. A group can be public or private. Groups are a Pro feature."],
  ["Groups","How do people join a private group?","You pick one way for each group. Open: anyone signed in joins with one click. Approval required: people ask, and a group moderator or an admin approves. Invite only: people get in only through an invite link or an admin. Admins can also add members by hand or by WordPress role."],
