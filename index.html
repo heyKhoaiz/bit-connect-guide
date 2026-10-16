@@ -350,7 +350,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
           <thead><tr><th>Role</th><th>Permissions to give</th></tr></thead>
           <tbody>
             <tr><td data-l="Role">Members</td><td data-l="Permissions">Create, edit and delete their own topics and comments, upvote, and suggest tags</td></tr>
-            <tr><td data-l="Role">Moderators</td><td data-l="Permissions">Everything members can do, plus delete any content, moderate, and lock topics. With Pro, administrators can also pin topics.</td></tr>
+            <tr><td data-l="Role">Moderators</td><td data-l="Permissions">Everything members can do, plus delete any content, moderate, and lock topics. They can still comment on a topic they have locked. With Pro, administrators can also pin topics.</td></tr>
             <tr><td data-l="Role">Administrators</td><td data-l="Permissions">Manage the forum and all of its settings</td></tr>
           </tbody></table></div>
 
@@ -359,7 +359,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
           <thead><tr><th>Screen</th><th>What you do there</th></tr></thead>
           <tbody>
             <tr><td data-l="Screen">Dashboard</td><td data-l="Use">See totals, an activity chart, the most-requested topics, response time, top contributors, and items that need attention</td></tr>
-            <tr><td data-l="Screen">Topics</td><td data-l="Use">Filter topics, change their stage or status, and lock, hide or delete them in bulk. Pro adds a Pinned column and bulk Pin and Unpin.</td></tr>
+            <tr><td data-l="Screen">Topics</td><td data-l="Use">Filter topics, change their stage or status, and lock, hide or delete them in bulk. Pro adds a Pinned column, bulk Pin and Unpin, and Make public for private topics.</td></tr>
             <tr><td data-l="Screen">Reports</td><td data-l="Use">Review reported content, then keep it or remove it with a note</td></tr>
             <tr><td data-l="Screen">Activity</td><td data-l="Use">See every moderation action and who took it</td></tr>
             <tr><td data-l="Screen">Members</td><td data-l="Use">Search members and set what each role is allowed to do</td></tr>
@@ -456,7 +456,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
             <tr><td data-l="File"><code>/bit-connect-sitemap-tag-1.xml</code> etc.</td><td data-l="Holds">Each stage, tag, topic type or group page you chose to index, if it has topics</td></tr>
             <tr><td data-l="File"><code>/wp-sitemap.xml</code></td><td data-l="Holds">The WordPress sitemap, which includes the same links</td></tr>
           </tbody></table></div>
-        <div class="callout"><strong>Never in the sitemap:</strong> profiles, extra list pages, account pages, empty or unapproved tags, topics hidden while a report is reviewed, private topics and private groups. The sitemap only appears when the community is public and <em>Settings → Reading → Discourage search engines</em> is off.</div>
+        <div class="callout"><strong>Never in the sitemap:</strong> profiles, extra list pages, account pages, empty or unapproved tags, hidden topics, private topics and private groups. The sitemap only appears when the community is public and <em>Settings → Reading → Discourage search engines</em> is off.</div>
 
         <h3>What each page tells search engines</h3>
         <div class="tbl stack"><table>
@@ -623,7 +623,7 @@ const FAQ = [
  ["SEO","What happens to links when I rename a tag or stage?","The old address redirects permanently (301) to the new one."],
  ["SEO","Does it add structured data?","Yes. Topics use DiscussionForumPosting with breadcrumbs, and lists use CollectionPage. Google uses these for forum results."],
  ["SEO","Can search engines read the content if it is built with JavaScript?","Yes, when the community is public. Topic pages, the topic list, and tag, stage and group pages are sent as plain HTML first, and the app loads on top of it."],
- ["SEO","Which pages are kept out of search?","Login and sign-up pages, notifications, following, tags still waiting for approval, status pages (by default), topics hidden while a report is reviewed, private topics and private groups. Empty tags are left out of the sitemap. Profiles are hidden by default. A members-only community is hidden entirely."],
+ ["SEO","Which pages are kept out of search?","Login and sign-up pages, notifications, following, tags still waiting for approval, status pages (by default), hidden topics, private topics and private groups. Empty tags are left out of the sitemap. Profiles are hidden by default. A members-only community is hidden entirely."],
  ["SEO","Can I choose which archives get indexed?","Yes. Settings → SEO has a switch for stages, statuses, tags, topic types and, with Pro, groups."],
  ["SEO","Do I need to submit the sitemap?","It is listed in robots.txt so search engines find it. Submitting it in Google Search Console and Bing Webmaster Tools makes indexing faster."],
  ["SEO","Why is my sitemap empty or missing?","Check that a community page is set, the community is public, and 'Discourage search engines' is off under Settings → Reading. Settings → SEO warns you if either of the last two blocks it."],
