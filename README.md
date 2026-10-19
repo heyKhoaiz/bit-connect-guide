@@ -7,11 +7,11 @@ A one-page guide to **Bit Connect**, a community forum, feedback board and publi
 ## What's inside
 
 - **Screenshots**: 28 screens of the community portal, admin, settings, phone and dark mode
-- **Get started**: install, set up the portal, grant permissions, organise stages, statuses, types and tags
+- **Get started**: install, set up the portal, grant permissions, organise stages, statuses, topics and tags
 - **Upgrade to Pro**: install the add-on, activate the licence, what happens if it expires
 - **Free vs Pro**: feature checklists and a side-by-side table
 - **SEO and AI search**: link structure, sitemaps, structured data, and how to get cited by AI assistants
-- **Use cases** and a searchable **FAQ** of 133 questions
+- **Use cases**, the **Roadmap** and a searchable **FAQ** of 138 questions
 
 ## Running it locally
 
