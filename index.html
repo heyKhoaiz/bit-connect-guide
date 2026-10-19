@@ -236,9 +236,10 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
       <a href="#upgrade"><span>3</span>Upgrade to Pro</a>
       <a href="#features"><span>4</span>Free vs Pro</a>
       <a href="#seo"><span>5</span>SEO &amp; AI search</a>
-      <a href="#usecases"><span>6</span>Use cases</a>
-      <a href="#roadmap"><span>7</span>Roadmap</a>
-      <a href="#faq"><span>8</span>FAQ</a>
+      <a href="#tech"><span>6</span>Built with</a>
+      <a href="#usecases"><span>7</span>Use cases</a>
+      <a href="#roadmap"><span>8</span>Roadmap</a>
+      <a href="#faq"><span>9</span>FAQ</a>
     </nav>
 
     <main>
@@ -487,7 +488,44 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
         </ul>
       </section>
 
-      <!-- 5 -->
+      <!-- 6 -->
+      <section id="tech">
+        <h2>Built with</h2>
+        <p class="lead">Bit Connect is a normal WordPress plugin. It keeps your content in WordPress's own data types where it can, and it adds a modern app on top for the portal and the admin screens.</p>
+
+        <h3>The stack</h3>
+        <div class="grid">
+          <div class="card"><h4>WordPress</h4><p>Posts are a custom post type, comments are WordPress comments, and stages, statuses, topics and tags are taxonomies. Members are your WordPress users and roles.</p></div>
+          <div class="card"><h4>PHP backend</h4><p>PHP 8.2 or newer, in a service-provider structure. REST controllers validate each request with its own rules class and check the nonce and the user's capability.</p></div>
+          <div class="card"><h4>Database</h4><p>Five tables of its own, with the <code>bit_connect_</code> prefix: votes, follows, reports, notifications and the activity log. Pro adds group members, comment votes and poll votes.</p></div>
+          <div class="card"><h4>React frontend</h4><p>React 18 and TypeScript, built with Vite 6. Two apps: the community portal and the admin panel.</p></div>
+          <div class="card"><h4>UI and state</h4><p>Ant Design 5 and Tailwind CSS 3 for the interface, Jotai for state, TanStack Query 5 for data, React Router 7 and the Quill 2 editor.</p></div>
+          <div class="card"><h4>Server rendering</h4><p>PHP sends each portal page as finished HTML, with the WordPress Interactivity API. The React app then starts on top of it.</p></div>
+        </div>
+
+        <h3>How a portal page loads</h3>
+        <ol class="steps">
+          <li><div><strong>WordPress gets the request</strong>, for example <code>/community/dark-mode-for-the-dashboard/</code>, and Bit Connect's router finds the page.</div></li>
+          <li><div><strong>PHP writes the page.</strong> The HTML holds the post text, the comments, the title and meta tags, the canonical URL and the structured data. Search engines and AI crawlers read this.</div></li>
+          <li><div><strong>The browser starts the app.</strong> The portal's JavaScript loads as ES modules on portal pages only. It takes over the HTML that PHP sent.</div></li>
+          <li><div><strong>The app talks to the REST API.</strong> Votes, comments and filters go to <code>/wp-json/bit-connect/v1/</code>. The page changes at once, without a full reload.</div></li>
+        </ol>
+
+        <h3>Tools and libraries</h3>
+        <div class="tbl stack"><table>
+          <thead><tr><th>Layer</th><th>What it uses</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Layer">WordPress APIs</td><td data-l="Uses">Custom post type, taxonomies, comments, REST API, Interactivity API, WP-Cron, <code>wp_mail()</code>, a block and a shortcode</td></tr>
+            <tr><td data-l="Layer">PHP libraries</td><td data-l="Uses">Bit Apps WP Kit (router and hooks), WP Database (query builder and migrations) and WP Validator. Imposter moves them into the <code>BitApps\BitConnect\Deps</code> namespace, so they cannot clash with another plugin's copy.</td></tr>
+            <tr><td data-l="Layer">Frontend</td><td data-l="Uses">React 18, TypeScript 5, Vite 6, Ant Design 5, Tailwind CSS 3 with a <code>bc-</code> class prefix, Jotai, TanStack Query 5, React Router 7, Quill 2</td></tr>
+            <tr><td data-l="Layer">Fonts</td><td data-l="Uses">Inter and Outfit, served from your own site under the SIL Open Font License</td></tr>
+            <tr><td data-l="Layer">Background jobs</td><td data-l="Uses">WP-Cron: every hour for summary emails, every day to remove old read notifications and unused uploads</td></tr>
+            <tr><td data-l="Layer">Quality checks</td><td data-l="Uses">PHPUnit 11 and Vitest tests, PHPStan, PHP-CS-Fixer, PHPCompatibilityWP, ESLint, and the WordPress Plugin Check in CI</td></tr>
+          </tbody></table></div>
+        <div class="callout"><strong>Source code:</strong> the free plugin is open source under GPL-2.0-or-later at <a href="https://github.com/bit-apps-pro/bit-connect">github.com/bit-apps-pro/bit-connect</a>. To build it, you need PHP 8.2+, Node 20+, pnpm 9+ and Composer 2.</div>
+      </section>
+
+      <!-- 7 -->
       <section id="usecases">
         <h2>Use cases</h2>
         <p class="lead">One plugin can be set up for very different kinds of community.</p>
@@ -504,7 +542,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
         </div>
       </section>
 
-      <!-- 7 -->
+      <!-- 8 -->
       <section id="roadmap">
         <h2>Roadmap</h2>
         <p class="lead">What we plan to build, in order. Phases are a sequence, not dates, and the plan can change as we hear from you. Every free feature works fully without Pro.</p>
@@ -533,7 +571,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);color:v
         </div>
       </section>
 
-      <!-- 8 -->
+      <!-- 9 -->
       <section id="faq">
         <h2>Frequently asked questions</h2>
         <div class="search">
@@ -699,9 +737,22 @@ const FAQ = [
  ["Moderation","Does hidden content ever come back?","Yes. With Pro auto-hide, a hidden post returns as soon as a moderator decides to keep it."],
  ["Moderation","Are moderators' posts held for approval?","No. With the approval queue on, posts by moderators and admins are still published straight away."],
  ["Moderation","Do comment upvotes need a permission?","Yes. With Pro comment upvotes on, members also need the Vote Comments permission under Members → Role permissions."],
- ["Groups","Can members see private groups they haven't joined?","Private groups are listed in the group directory so people can ask to join, but their posts stay hidden until someone is let in."]
+ ["Groups","Can members see private groups they haven't joined?","Private groups are listed in the group directory so people can ask to join, but their posts stay hidden until someone is let in."],
+
+ ["Technical","Where does Bit Connect store its data?","In your WordPress database. Posts are a custom post type named bit-connect. Comments are WordPress comments. Stages, statuses, topics and tags are taxonomies. Votes, follows, reports, notifications and the activity log are in five tables with the bit_connect_ prefix. Uploaded files go to your uploads folder."],
+ ["Technical","Does it add database tables?","Yes. The free plugin adds five tables: votes, follows, reports, notifications and the activity log. Pro adds three more: group members, comment votes and poll votes. The plugin creates them when you activate it."],
+ ["Technical","Which REST API does it use?","The portal and the admin use routes under /wp-json/bit-connect/v1/. Each route checks a nonce, the user's capability and a set of validation rules. These routes are for the plugin's own app and are not documented as a public API, so they can change between versions."],
+ ["Technical","Does it work with page cache plugins?","Yes. Portal pages are normal WordPress pages. The plugin's REST answers tell caches not to keep them: they send the standard no-cache header, LiteSpeed's own header and the DONOTCACHEPAGE constant. This stops a cache from showing old votes, pins or notifications."],
+ ["Technical","Does it load scripts on every page of my site?","No. The portal's scripts and styles load only on portal pages, and the admin app loads only on the Bit Connect admin screens. The scripts load as ES modules."],
+ ["Technical","Will its CSS break my theme?","No. Every Tailwind class has the bc- prefix, and the portal uses its own full-page template. If you put the shortcode on a page, your theme's header and footer show around it."],
+ ["Technical","Will its PHP libraries conflict with other plugins?","No. The plugin moves its Composer libraries into its own namespace, BitApps\\BitConnect\\Deps, with Imposter. Pro uses a different namespace. Two plugins that use different versions of the same library can run together."],
+ ["Technical","Does it use WP-Cron?","Yes. One job runs every hour to send summary emails. Two jobs run every day to remove old read notifications and unused uploads. If you turn off WP-Cron in wp-config.php, set a server cron job that calls wp-cron.php."],
+ ["Technical","How are portal pages rendered for search engines?","PHP renders each portal page on the server with the WordPress Interactivity API. The HTML holds the post text, meta tags and structured data. React then starts in the browser and takes over the page, so visitors get an app and crawlers get plain HTML."],
+ ["Technical","Which frontend libraries does it use?","React 18 with TypeScript, built with Vite. The interface uses Ant Design 5 and Tailwind CSS 3. State uses Jotai, data uses TanStack Query, routing uses React Router 7, and the editor is Quill 2."],
+ ["Technical","Can I build the plugin from source?","Yes. Clone github.com/bit-apps-pro/bit-connect, then run composer install, pnpm install and pnpm build:free. You need PHP 8.2+, Node 20+, pnpm 9+ and Composer 2. The free plugin is licensed GPL-2.0-or-later."],
+ ["Technical","Can developers extend it with hooks?","The plugin has WordPress filters and actions with the bit_connect_ prefix, and Pro uses them to add its features. They are not documented as a public API yet, so test your code again after each update."]
 ];
-const ORDER=['General','Setup','Accounts','Posting','Notifications','Moderation','Groups','SEO','Privacy','Pro'];
+const ORDER=['General','Setup','Accounts','Posting','Notifications','Moderation','Groups','SEO','Privacy','Technical','Pro'];
 FAQ.sort((a,b)=>ORDER.indexOf(a[0])-ORDER.indexOf(b[0]));
 // theme switch: light / auto (device) / dark, remembered per browser
 const themeBtns=[...document.querySelectorAll('.theme button')];
