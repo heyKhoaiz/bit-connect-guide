@@ -12,7 +12,7 @@ A one-page guide to **Bit Connect**, a community forum, feedback board and publi
 - **Free vs Pro**: feature checklists and a side-by-side table
 - **SEO and AI search**: link structure, sitemaps, structured data, and how to get cited by AI assistants
 - **Built with**: the technology stack, how a portal page loads, and the tools and libraries
-- **Use cases**, the **Roadmap** and a searchable **FAQ** of 150 questions, with a Technical category
+- **Use cases**, the **Roadmap** and a searchable **FAQ** of 152 questions, with a Technical category
 
 ## Running it locally
 
